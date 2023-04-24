@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styles from "./Home.module.css";
+import React from "react";
 
 export default function Home() {
   return (
@@ -46,7 +47,12 @@ export default function Home() {
             </label>
             <label>
               <span className={styles.label}>Estatetype</span>
-              <input name="estateType" required />
+              <select name="estateType" required>
+                <option value="">Select an option</option>
+                <option value="House">House</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Condo">Condo</option>
+              </select>
             </label>
 
             <button className={styles.button}>Submit</button>
