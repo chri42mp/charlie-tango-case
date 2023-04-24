@@ -9,11 +9,11 @@ export default function Home() {
       </Head>
       <div className="wrapper">
         <h1 className={styles.headline}>Hello MMD</h1>
-        <div className={styles.content}>
+        {/* <div className={styles.content}>
           <p>
             To get started, edit <code>pages/index.js</code> and save to reload.
           </p>
-        </div>
+        </div> */}
         <div className={styles.content}>
           <h2>Basic form example</h2>
           <p>
@@ -33,9 +33,22 @@ export default function Home() {
           </p>
           <form action="/buyers" method="GET" className={styles.form}>
             <label>
+              <span className={styles.label}>Price</span>
+              <input name="Price" required />
+            </label>
+            <label>
+              <span className={styles.label}>Squaremeters</span>
+              <input name="squareMeters" required />
+            </label>
+            <label>
               <span className={styles.label}>Zip Code</span>
               <input name="zipCode" required />
             </label>
+            <label>
+              <span className={styles.label}>Estatetype</span>
+              <input name="estateType" required />
+            </label>
+
             <button className={styles.button}>Submit</button>
           </form>
         </div>
