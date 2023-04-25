@@ -1,6 +1,20 @@
 import Head from "next/head";
 import styles from "./Home.module.css";
 import React from "react";
+import { estateTypes } from "@/data/estateTypes";
+
+function SelectEstateType({ estateTypes }) {
+  return (
+    <select name="estateType" required>
+      <option value="">Select an option</option>
+      {estateTypes.map((estateType) => (
+        <option key={estateType.id} value={estateType.id}>
+          {estateType.name}
+        </option>
+      ))}
+    </select>
+  );
+}
 
 export default function Home() {
   return (
@@ -10,11 +24,6 @@ export default function Home() {
       </Head>
       <div className="wrapper">
         <h1 className={styles.headline}>Hello MMD</h1>
-        {/* <div className={styles.content}>
-          <p>
-            To get started, edit <code>pages/index.js</code> and save to reload.
-          </p>
-        </div> */}
         <div className={styles.content}>
           <h2>Basic form example</h2>
           <p>
@@ -46,15 +55,9 @@ export default function Home() {
               <input name="zipCode" required />
             </label>
             <label>
-              <span className={styles.label}>Estatetype</span>
-              <select name="estateType" required>
-                <option value="">Select an option</option>
-                <option value="House">House</option>
-                <option value="Apartment">Apartment</option>
-                <option value="Condo">Condo</option>
-              </select>
+              <span className={styles.label}>Estate Type</span>
+              <SelectEstateType estateTypes={estateTypes} />
             </label>
-
             <button className={styles.button}>Submit</button>
           </form>
         </div>
