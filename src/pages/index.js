@@ -16,7 +16,7 @@ export default function Home() {
       <select name="estateType" required>
         <option value="">Select an option</option>
         {estateTypes.map((estateType) => (
-          <option key={estateType.id} value={estateType.name}>
+          <option key={estateType.id} value={estateType.id}>
             {estateType.name}
           </option>
         ))}
