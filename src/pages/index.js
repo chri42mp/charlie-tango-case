@@ -1,22 +1,14 @@
 import Head from "next/head";
 import styles from "./Home.module.css";
 import React from "react";
-import { estateTypes } from "@/data/estateTypes";
-
-function SelectEstateType({ estateTypes }) {
-  return (
-    <select name="estateType" required>
-      <option value="">Select an option</option>
-      {estateTypes.map((estateType) => (
-        <option key={estateType.id} value={estateType.id}>
-          {estateType.name}
-        </option>
-      ))}
-    </select>
-  );
-}
 
 export default function Home() {
+  const [price, setPrice] = useState(0);
+
+  function handlePriceChange(event) {
+    setPrice(event.target.value);
+  }
+
   return (
     <>
       <Head>
@@ -44,8 +36,20 @@ export default function Home() {
           <form action="/buyers" method="GET" className={styles.form}>
             <label>
               <span className={styles.label}>Price</span>
-              <input name="Price" required />
+              <input
+                type="range"
+                name="Price"
+                min="0"
+                max="20000000"
+                step="400"
+                required
+                onChange={handlePriceChange}
+              />
             </label>
+
+            <span>{price}</span>
+            <p>0 kr. ______________20 mio. kr.</p>
+
             <label>
               <span className={styles.label}>Squaremeters</span>
               <input name="squareMeters" required />
