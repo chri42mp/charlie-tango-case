@@ -14,12 +14,14 @@ export async function getServerSideProps() {
 
 export default function Buyers(props) {
   const { query } = useRouter();
+  const potentialBuyers = props.data;
+
   return (
     <>
       <Head>
         <title>Find buyer | EDC</title>
       </Head>
-      
+
       <div className="wrapper">
         <h1 className={styles.headline}>Potential buyers</h1>
         <p>
@@ -32,24 +34,7 @@ export default function Buyers(props) {
           multiple ways of doing it, and you should choose the one that fits
           your solution best.
         </p>
-        <ul>
-          <li>
-            <a
-              href="https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props"
-              target="_blank"
-            >
-              next.js - Data fetching
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://react.dev/learn/synchronizing-with-effects#fetching-data"
-              target="_blank"
-            >
-              react.dev - Fetching data
-            </a>
-          </li>
-        </ul>
+
         <div className={styles.content}>
           <h2>Query params:</h2>
           <pre>
@@ -57,12 +42,18 @@ export default function Buyers(props) {
           </pre>
         </div>
 
-        {/* <div className={styles.content}>
-          <h2>Query params:</h2>
-          <pre>
-            <code>{JSON.stringify(query, null, 2)}</code>
-          </pre>
-        </div> */}
+        <div className={styles.content}>
+          <h2>Potential buyers:</h2>
+          <ul>
+            {potentialBuyers.map((buyer) => (
+              <li key={buyer.id}>
+                <p>Adults: {buyer.adults}</p>
+                <p>Children: {buyer.children}</p>
+                <p>Estatetype: {buyer.estateType}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
