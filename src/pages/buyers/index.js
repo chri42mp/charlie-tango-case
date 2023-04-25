@@ -45,6 +45,13 @@ export default function Buyers() {
             <code>{JSON.stringify(query, null, 2)}</code>
           </pre>
         </div>
+
+        {/* <div className={styles.content}>
+          <h2>Query params:</h2>
+          <pre>
+            <code>{JSON.stringify(query, null, 2)}</code>
+          </pre>
+        </div> */}
       </div>
     </>
   );

@@ -77,7 +77,7 @@ export default function Home() {
               <span className={styles.label}>Estate Type</span>
               <SelectEstateType estateTypes={estateTypes} />
             </label>
-            <button className={styles.button}>Submit</button>
+            <button className={styles.button}>Find Potential Buyers</button>
           </form>
         </div>
       </div>
