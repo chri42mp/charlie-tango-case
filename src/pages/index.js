@@ -1,7 +1,9 @@
 import Head from "next/head";
 import styles from "./Home.module.css";
-import React from "react";
+import React, { useState } from "react";
+
 import { estateTypes } from "@/data/estateTypes";
+
 export default function Home() {
   const [price, setPrice] = useState(0);
 
@@ -61,7 +63,7 @@ export default function Home() {
             </label>
 
             <span>{price}</span>
-            <p>0 kr. ______________20 mio. kr.</p>
+            <p>0 kr. 20 mio. kr.</p>
 
             <label>
               <span className={styles.label}>Squaremeters</span>
