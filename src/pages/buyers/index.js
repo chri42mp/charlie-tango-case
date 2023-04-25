@@ -50,6 +50,7 @@ export default function Buyers(props) {
                 <p>Adults: {buyer.adults}</p>
                 <p>Children: {buyer.children}</p>
                 <p>Estatetype: {buyer.estateType}</p>
+                <p>Description: {buyer.description}</p>
               </li>
             ))}
           </ul>
