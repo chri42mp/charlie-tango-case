@@ -1,12 +1,25 @@
 import Head from "next/head";
 import styles from "./Home.module.css";
 import React from "react";
-
+import { estateTypes } from "@/data/estateTypes";
 export default function Home() {
   const [price, setPrice] = useState(0);
 
   function handlePriceChange(event) {
     setPrice(event.target.value);
+  }
+
+  function SelectEstateType({ estateTypes }) {
+    return (
+      <select name="estateType" required>
+        <option value="">Select an option</option>
+        {estateTypes.map((estateType) => (
+          <option key={estateType.id} value={estateType.id}>
+            {estateType.name}
+          </option>
+        ))}
+      </select>
+    );
   }
 
   return (
