@@ -16,7 +16,7 @@ export default function Home() {
       <select name="estateType" required>
         <option value="">Select an option</option>
         {estateTypes.map((estateType) => (
-          <option key={estateType.id} value={estateType.id}>
+          <option key={estateType.id} value={estateType.name}>
             {estateType.name}
           </option>
         ))}
@@ -56,7 +56,7 @@ export default function Home() {
                 name="Price"
                 min="0"
                 max="20000000"
-                step="400"
+                step="10"
                 required
                 onChange={handlePriceChange}
               />
