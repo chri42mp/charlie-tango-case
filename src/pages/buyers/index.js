@@ -2,13 +2,24 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
 
-export default function Buyers() {
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`http://localhost:3001/api/find-buyers`);
+  const data = await res.json();
+
+  // Pass data to the page via props
+  return { props: { data } };
+}
+
+export default function Buyers(props) {
   const { query } = useRouter();
   return (
     <>
       <Head>
         <title>Find buyer | EDC</title>
       </Head>
+      
       <div className="wrapper">
         <h1 className={styles.headline}>Potential buyers</h1>
         <p>
