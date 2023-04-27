@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
 import RoundButton from "@/components/roundbutton";
+import ContactForm from "@/components/Contactform";
 
 export async function getServerSideProps(context) {
   const { query } = context;
@@ -49,6 +50,9 @@ export default function Buyers(props) {
                 <p>Description: {buyer.description}</p>
               </article>
             ))}
+          </div>
+          <div className="col">
+            <ContactForm />
           </div>
         </div>
         <div className={styles.hide}>
