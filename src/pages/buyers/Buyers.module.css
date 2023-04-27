@@ -25,6 +25,7 @@
 .grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  align-content: center;
 }
 .col {
   display: grid;

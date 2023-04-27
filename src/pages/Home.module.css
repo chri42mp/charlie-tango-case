@@ -23,6 +23,7 @@
 .form {
   background-color: var(--dusty-blue-lighter);
   padding: 1rem;
+ 
 }
 
 .label {
@@ -42,4 +43,20 @@
 }
 .button:hover {
   background: var(--hover);
+}
+
+.myForm{
+  position: fixed;
+  top: O;
+  right: 0;
+  background-color:  #F3F7F7;
+  padding: 1rem;
+  width: 20rem;
+  height: 28rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem;
+  border: 1px solid var(--dusty-aqua);
+  
 }

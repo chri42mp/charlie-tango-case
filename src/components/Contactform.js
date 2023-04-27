@@ -1,4 +1,6 @@
 import { useState } from "react";
+import styles from "../pages/Home.module.css";
+
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -28,9 +30,11 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.myForm}>
+      <h3>Should we contact potential buyers on your behalf?</h3>
       <div>
-        <label htmlFor="name">Name:</label>
+        <br />
+        <label htmlFor="name">Name:  </label>
         <input
           type="text"
           id="name"
@@ -41,7 +45,8 @@ const ContactForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="email">Email:</label>
+        <br />
+        <label htmlFor="email">Email:  </label>
         <input
           type="email"
           id="email"
@@ -52,7 +57,8 @@ const ContactForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="phone">Phone:</label>
+        <br />
+        <label htmlFor="phone">Phone: </label>
         <textarea
           id="phone"
           name="phone"
@@ -61,7 +67,7 @@ const ContactForm = () => {
           required
         ></textarea>
       </div>
-      <button type="submit">Contact Buyers</button>
+      <button className={styles.button} type="submit">Contact Buyers</button> 
     </form>
   );
 };
