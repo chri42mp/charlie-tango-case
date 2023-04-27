@@ -29,7 +29,7 @@ export default function Buyers(props) {
 
       <div className="wrapper">
         <h1 className={styles.headline}>Potential buyers</h1>
-        <p>
+        {/* <p>
           On this page you get the <code>`query`</code> params like{" "}
           <code>`zipCode`</code>, and can use them to fetch a list of buyers
           from the API.
@@ -38,32 +38,43 @@ export default function Buyers(props) {
           Make sure to read the docs on how to fetch data on a page - There are
           multiple ways of doing it, and you should choose the one that fits
           your solution best.
-        </p>
-
-        <div className={styles.content}>
+        </p> */}
+        <div className={styles.grid}>
+          <div className="col">
+            {potentialBuyers.map((buyer) => (
+              <article key={buyer.id}>
+                <h3>{buyer.id}</h3>
+                <RoundButton />
+                <p>Estatetype: {buyer.estateType}</p>
+                <p>Description: {buyer.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div className={styles.hide}>
           <h2>Query params:</h2>
           <pre>
             <code>{JSON.stringify(query, null, 2)}</code>
           </pre>
         </div>
-
-        <div className={styles.content}>
-          <h2>Potential buyers:</h2>
-          <ul>
-            {potentialBuyers.map((buyer) => (
-              <li key={buyer.id}>
-                {/* <p>Adults: {buyer.adults}</p>
-                <p>Children: {buyer.children}</p> */}
-                <p>Estatetype: {buyer.estateType}</p>
-                <p>Description: {buyer.description}</p>
-                {/* <p>Size: {buyer.minSize}</p>
-                <p>Price: {buyer.maxPrice}</p> */}
-                <RoundButton />
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </>
   );
 }
+
+// <div className={styles.content}>
+//   <h2>Potential buyers:</h2>
+//   <ul>
+//     {potentialBuyers.map((buyer) => (
+//       <li key={buyer.id}>
+//         {/* <p>Adults: {buyer.adults}</p>
+//               <p>Children: {buyer.children}</p> */}
+//         <p>Estatetype: {buyer.estateType}</p>
+//         <p>Description: {buyer.description}</p>
+//         {/* <p>Size: {buyer.minSize}</p>
+//               <p>Price: {buyer.maxPrice}</p> */}
+//         <RoundButton />
+//       </li>
+//     ))}
+//   </ul>
+// </div>;

@@ -19,3 +19,13 @@
 .content :last-child {
   margin-bottom: 0;
 }
+.hide {
+  display: none;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.col {
+  grid-column: 1 / 3;
+}
