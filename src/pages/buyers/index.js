@@ -3,9 +3,13 @@ import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
 
 // This gets called on every request
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const query = context.query;
+  console.log(context.query);
   // Fetch data from external API
-  const res = await fetch(`http://localhost:3000/api/find-buyers`);
+  const res = await fetch(
+    `http://localhost:3001/api/find-buyers?price=${query.price}&size=${query.squareMeters}&zipCode=${query.zipCode}`
+  );
   const data = await res.json();
 
   // Pass data to the page via props

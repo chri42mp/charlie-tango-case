@@ -53,7 +53,7 @@ export default function Home() {
               <span className={styles.label}>Price</span>
               <input
                 type="range"
-                name="Price"
+                name="price"
                 min="0"
                 max="20000000"
                 step="10"
