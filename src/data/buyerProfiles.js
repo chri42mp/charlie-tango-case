@@ -30,14 +30,14 @@ export function generateBuyerProfile({
     /** Maximum price in kr */
     maxPrice: toNearestHundredThousand(
       faker.datatype.number({
-        min: price * 0.5,
-        max: price * 1.5,
+        min: price * 0.9,
+        max: price * 1.1,
       })
     ),
     /** Minimum size in m2 */
     minSize: faker.datatype.number({
-      min: Math.floor(size * 0.5),
-      max: Math.floor(size * 1.5),
+      min: Math.floor(size * 0.8),
+      max: Math.floor(size * 1.2),
     }),
     adults: faker.datatype.number({ min: 1, max: 2 }),
     children: faker.datatype.number({ min: 0, max: 5 }),
