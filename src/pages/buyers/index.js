@@ -41,7 +41,7 @@ export default function Buyers(props) {
           your solution best.
         </p> */}
         <div className={styles.grid}>
-          <div className="col">
+          <div className={styles.col}>
             {potentialBuyers.map((buyer) => (
               <article key={buyer.id}>
                 <h3>{buyer.id}</h3>
