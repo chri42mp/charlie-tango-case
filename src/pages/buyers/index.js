@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
+import RoundButton from "@/components/roundbutton";
 
 export async function getServerSideProps(context) {
   const { query } = context;
@@ -57,6 +58,7 @@ export default function Buyers(props) {
                 <p>Description: {buyer.description}</p>
                 {/* <p>Size: {buyer.minSize}</p>
                 <p>Price: {buyer.maxPrice}</p> */}
+                <RoundButton />
               </li>
             ))}
           </ul>
