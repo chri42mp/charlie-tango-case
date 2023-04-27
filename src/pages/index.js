@@ -56,7 +56,7 @@ export default function Home() {
                 name="price"
                 min="0"
                 max="20000000"
-                step="10"
+                step="50000"
                 required
                 onChange={handlePriceChange}
               />

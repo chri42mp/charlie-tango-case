@@ -2,18 +2,18 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
 
-// This gets called on every request
 export async function getServerSideProps(context) {
-  const query = context.query;
-  console.log(context.query);
+  const { query } = context;
+  const { price, squareMeters, zipCode, estateType } = query;
+
   // Fetch data from external API
   const res = await fetch(
-    `http://localhost:3001/api/find-buyers?price=${query.price}&size=${query.squareMeters}&zipCode=${query.zipCode}`
+    `http://localhost:3000/api/find-buyers?price=${price}&size=${squareMeters}&zipCode=${zipCode}&estateType=${estateType}`
   );
   const data = await res.json();
 
   // Pass data to the page via props
-  return { props: { data } };
+  return { props: { data, estateType } };
 }
 
 export default function Buyers(props) {
@@ -51,10 +51,12 @@ export default function Buyers(props) {
           <ul>
             {potentialBuyers.map((buyer) => (
               <li key={buyer.id}>
-                <p>Adults: {buyer.adults}</p>
-                <p>Children: {buyer.children}</p>
+                {/* <p>Adults: {buyer.adults}</p>
+                <p>Children: {buyer.children}</p> */}
                 <p>Estatetype: {buyer.estateType}</p>
                 <p>Description: {buyer.description}</p>
+                {/* <p>Size: {buyer.minSize}</p>
+                <p>Price: {buyer.maxPrice}</p> */}
               </li>
             ))}
           </ul>
