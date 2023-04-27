@@ -15,7 +15,11 @@ function toNearestHundredThousand(number) {
  * Generate a fake profile for a potential buyer.
  * Feel free to adjust this date to fit your needs.
  */
-export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
+export function generateBuyerProfile({
+  price = 5000000,
+  size = 100,
+  eType = 1,
+} = {}) {
   const today = new Date();
   const endDate = new Date();
   // Set the end date to 3 months from now.
@@ -26,23 +30,20 @@ export function generateBuyerProfile({ price = 5000000, size = 100 } = {}) {
     /** Maximum price in kr */
     maxPrice: toNearestHundredThousand(
       faker.datatype.number({
-        min: price * 0.5,
-        max: price * 1.5,
+        min: price * 0.9,
+        max: price * 1.1,
       })
     ),
     /** Minimum size in m2 */
     minSize: faker.datatype.number({
-      min: Math.floor(size * 0.5),
-      max: Math.floor(size * 1.5),
+      min: Math.floor(size * 0.8),
+      max: Math.floor(size * 1.2),
     }),
     adults: faker.datatype.number({ min: 1, max: 2 }),
     children: faker.datatype.number({ min: 0, max: 5 }),
     description: "",
     /** The type of estate the buyer is looking for. This is just the ID, so we can find the value in `estateTypes.js` */
-    estateType:
-      estateTypes[
-        faker.datatype.number({ min: 0, max: estateTypes.length - 1 })
-      ].id,
+    estateType: estateTypes[eType].id,
     takeoverDate: faker.date
       .between(today, endDate)
       .toISOString()
@@ -90,6 +91,7 @@ export function generateBuyerProfiles({
   size = undefined,
   minResults = 0,
   maxResults = 20,
+  eType,
 } = {}) {
   if (!zipCode) return [];
   faker.seed(zipCode);
@@ -101,6 +103,6 @@ export function generateBuyerProfiles({
         max: maxResults,
       }),
     },
-    () => generateBuyerProfile({ price, size })
+    () => generateBuyerProfile({ price, size, eType })
   );
 }
