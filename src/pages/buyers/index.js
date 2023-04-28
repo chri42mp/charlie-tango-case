@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import styles from "./Buyers.module.css";
 import RoundButton from "@/components/roundbutton";
 import ContactForm from "@/components/Contactform";
+import { useState } from "react";
 
 export async function getServerSideProps(context) {
   const { query } = context;
@@ -20,6 +21,7 @@ export async function getServerSideProps(context) {
 
 export default function Buyers(props) {
   const { query } = useRouter();
+  const [selected, setSelected] = useState([]);
   const potentialBuyers = props.data;
 
   return (
@@ -44,14 +46,17 @@ export default function Buyers(props) {
           <div className={styles.col}>
             {potentialBuyers.map((buyer) => (
               <article key={buyer.id}>
-                <h3>{buyer.id}</h3>
-                <RoundButton />
+                {/* <h3>{buyer.id}</h3> */}
+                <RoundButton setSelected={setSelected} id={buyer.id} />
                 <p>Estatetype: {buyer.estateType}</p>
                 <p>Description: {buyer.description}</p>
               </article>
             ))}
           </div>
           <div className="col">
+            {selected.map((i) => (
+              <p>{i}</p>
+            ))}
             <ContactForm />
           </div>
         </div>

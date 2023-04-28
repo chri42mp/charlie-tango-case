@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-const RoundButton = () => {
+const RoundButton = (props) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleButtonClick = () => {
+    props.setSelected((prev) => prev.concat(props.id));
     setIsChecked(!isChecked);
   };
 
