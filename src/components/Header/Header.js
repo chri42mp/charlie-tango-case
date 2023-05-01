@@ -9,28 +9,28 @@ export function Header() {
     <header className="wrapper">
       <Link href="/" aria-label="EDC">
         <div className={styles.logoContainer}>
-            <Image
-              className={styles.logo}
-              src={logo.src}
-              width={64}
-              height={64}
-              alt="EDC"
-              priority
+          <Image
+            className={styles.logo}
+            src={logo.src}
+            width={64}
+            height={64}
+            alt="EDC"
+            priority
+          />
 
-            />
-            <Image
-            className={styles.profile}
-            src={profile.src}
-            width={32}
-            height={32}
-            alt="Icon"
-            />
-            
-         </div>
+          <Link href="/dashboard" legacyBehavior>
+            <p>
+              <Image
+                className={styles.profile}
+                src={profile.src}
+                width={32}
+                height={32}
+                alt="Icon"
+              />
+            </p>
+          </Link>
+        </div>
       </Link>
     </header>
   );
-  
 }
-          
-      
