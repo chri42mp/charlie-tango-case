@@ -4,7 +4,13 @@ const RoundButton = (props) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleButtonClick = () => {
-    props.setSelected((prev) => prev.concat(props.id));
+    if (isChecked) {
+      props.setSelected((prev) =>
+        prev.filter((selectedId) => selectedId !== props.id)
+      );
+    } else {
+      props.setSelected((prev) => prev.concat(props.id));
+    }
     setIsChecked(!isChecked);
   };
 
