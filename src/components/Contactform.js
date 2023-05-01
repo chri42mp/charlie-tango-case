@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../pages/Home.module.css";
 
-const ContactForm = () => {
+const ContactForm = (props) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,6 +31,9 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} className={styles.myForm}>
       <h3>Should we contact potential buyers on your behalf?</h3>
+      {props.selected.map((i) => (
+        <p key={i}>{i}</p>
+      ))}
       <div>
         <br />
         <label htmlFor="name">Name: </label>

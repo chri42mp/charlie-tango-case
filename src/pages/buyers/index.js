@@ -54,10 +54,7 @@ export default function Buyers(props) {
             ))}
           </div>
           <div className="col">
-            {selected.map((i) => (
-              <p>{i}</p>
-            ))}
-            <ContactForm />
+            <ContactForm selected={selected} />
           </div>
         </div>
         <div className={styles.hide}>
