@@ -67,7 +67,6 @@ export default function Buyers(props) {
     </>
   );
 }
-
 // <div className={styles.content}>
 //   <h2>Potential buyers:</h2>
 //   <ul>

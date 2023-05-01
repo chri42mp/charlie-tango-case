@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "../pages/Home.module.css";
+import Link from "next/link";
 
 const ContactForm = (props) => {
   const [formData, setFormData] = useState({
@@ -70,10 +71,11 @@ const ContactForm = (props) => {
           required
         />
       </div>
-
-      <button className={styles.button} type="submit">
-        Contact Buyers
-      </button>
+      <Link href="/Confirmation">
+        <button className={styles.button} type="submit">
+          Contact Buyers
+        </button>
+      </Link>
     </form>
   );
 };

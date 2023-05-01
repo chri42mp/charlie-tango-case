@@ -1,14 +1,16 @@
 import Head from "next/head";
 
-const Confirmation = () => {
+export default function Confirmation() {
   return (
     <>
       <Head>
-        <title>Confirmation | EDC</title>
+        <title>Contact Confirmation | EDC</title>
       </Head>
-      <h1>Thanks for contacting us, we will get back to you soon!</h1>
+
+      <div>
+        <h1>Thank you for contacting the potential buyers!</h1>
+        <p>We will get back to you as soon as possible.</p>
+      </div>
     </>
   );
-};
-
-export default Confirmation;
+}
