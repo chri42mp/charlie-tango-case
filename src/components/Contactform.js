@@ -56,17 +56,17 @@ const ContactForm = () => {
         />
       </div>
       <div>
-          <br />
-          <label htmlFor="phone">Phone: </label>
-          <input
-            type="number"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <br />
+        <label htmlFor="phone">Phone: </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
       <button className={styles.button} type="submit">
         Contact Buyers
