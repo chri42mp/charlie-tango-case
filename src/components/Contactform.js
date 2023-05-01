@@ -29,16 +29,16 @@ const ContactForm = (props) => {
     }
   };
 
+  const selectedBuyerIds = props.selected.join(", ");
+
   return (
     <form onSubmit={handleSubmit} className={styles.myForm}>
       <h3>Should we contact potential buyers on your behalf?</h3>
-      {props.selected
-        .reduce((unique, item) => {
-          return unique.includes(item) ? unique : [...unique, item];
-        }, [])
-        .map((item) => {
-          return <p key={item}>{item}</p>;
-        })}
+      {props.selected.length === 0 ? (
+        <p>No buyers added</p>
+      ) : (
+        <p>Selected ID: {selectedBuyerIds}</p>
+      )}
       <div>
         <br />
         <label htmlFor="name">Name: </label>
