@@ -11,7 +11,7 @@
   padding: 1rem;
   background-color: var(--dusty-aqua-light);
   border: 1px solid var(--dusty-aqua);
-  margin-bottom: 1rem
+  margin-bottom: 1rem;
 }
 .content :first-child {
   margin-top: 0;
@@ -23,7 +23,6 @@
 .form {
   background-color: var(--dusty-blue-lighter);
   padding: 1rem;
- 
 }
 
 .label {
@@ -45,18 +44,12 @@
   background: var(--hover);
 }
 
-.myForm{
+.myForm {
   position: fixed;
-  top: O;
-  right: 0;
-  background-color:  #F3F7F7;
+  background-color: #f3f7f7;
   padding: 1rem;
   width: 20rem;
   height: 28rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   margin: 2rem;
   border: 1px solid var(--dusty-aqua);
-  
 }
