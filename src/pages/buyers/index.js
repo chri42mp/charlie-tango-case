@@ -4,6 +4,8 @@ import styles from "./Buyers.module.css";
 import RoundButton from "@/components/roundbutton";
 import ContactForm from "@/components/Contactform";
 import { useState } from "react";
+import Image from "next/image";
+import estateIcon from "@/assets/icon-boligtype.svg";
 
 export async function getServerSideProps(context) {
   const { query } = context;
@@ -39,7 +41,16 @@ export default function Buyers(props) {
               <article key={buyer.id}>
                 {/* <h3>{buyer.id}</h3> */}
                 <RoundButton setSelected={setSelected} id={buyer.id} />
-                <p>Id: {buyer.id}</p>
+                <p>
+                  {" "}
+                  <Image
+                    src={estateIcon}
+                    width={32}
+                    height={32}
+                    alt="EDC"
+                  />{" "}
+                  Id: {buyer.id}
+                </p>
                 <p>Estatetype: {buyer.estateType}</p>
                 <p>Date: {buyer.takeoverDate}</p>
                 <p>Adults: {buyer.adults}</p>
