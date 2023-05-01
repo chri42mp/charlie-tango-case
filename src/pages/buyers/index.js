@@ -32,24 +32,21 @@ export default function Buyers(props) {
 
       <div className="wrapper">
         <h1 className={styles.headline}>Potential buyers</h1>
-        {/* <p>
-          On this page you get the <code>`query`</code> params like{" "}
-          <code>`zipCode`</code>, and can use them to fetch a list of buyers
-          from the API.
-        </p>
-        <p>
-          Make sure to read the docs on how to fetch data on a page - There are
-          multiple ways of doing it, and you should choose the one that fits
-          your solution best.
-        </p> */}
+
         <div className={styles.grid}>
           <div className={styles.col}>
             {potentialBuyers.map((buyer) => (
               <article key={buyer.id}>
                 {/* <h3>{buyer.id}</h3> */}
                 <RoundButton setSelected={setSelected} id={buyer.id} />
+                <p>Id: {buyer.id}</p>
                 <p>Estatetype: {buyer.estateType}</p>
+                <p>Date: {buyer.takeoverDate}</p>
+                <p>Adults: {buyer.adults}</p>
+                <p>Children: {buyer.children}</p>
                 <p>Description: {buyer.description}</p>
+                <p>Size: {buyer.minSize}</p>
+                <p>Price: {buyer.maxPrice}</p>
               </article>
             ))}
           </div>
