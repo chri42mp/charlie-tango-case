@@ -15,13 +15,27 @@ const ContactForm = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch("/api/contact", {
+
+    const payload = {
+      ...formData,
+      consent: true,
+      buyer: props.selected,
+      price: props.price,
+      squareMeters: props.squareMeters,
+      zipCode: props.zipCode,
+      estateType: props.estateType,
+    };
+    console.log(payload);
+
+    const response = await fetch("/api/submit-details", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(payload),
     });
+    const data = await response.json();
+    console.log(data);
     if (response.ok) {
       console.log("Message sent successfully");
     } else {
@@ -75,11 +89,10 @@ const ContactForm = (props) => {
           required
         />
       </div>
-      <Link href="/Confirmation">
-        <button className={styles.button} type="submit">
-          Contact Buyers
-        </button>
-      </Link>
+
+      <button className={styles.button} type="submit">
+        Contact Buyers
+      </button>
     </form>
   );
 };

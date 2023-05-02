@@ -62,7 +62,14 @@ export default function Buyers(props) {
             ))}
           </div>
           <div className="col">
-            <ContactForm selected={selected} />
+            {/* price=13450000&squareMeters=123&zipCode=2121&estateType=2 */}
+            <ContactForm
+              selected={selected}
+              price={query.price}
+              squareMeters={query.squareMeters}
+              zipCode={query.zipCode}
+              estateType={query.estateType}
+            />
           </div>
         </div>
         <div className={styles.hide}>

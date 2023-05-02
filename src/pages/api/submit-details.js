@@ -1,59 +1,27 @@
-import { createClient } from "@supabase/supabase-js";
+// import { generateBuyerProfiles } from "@/data/buyerProfiles";
 
+/**
+ * Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+ * @param req {import('next').NextApiRequest}
+ * @param res {import('next').NextApiResponse}
+ */
 const supabaseUrl =
-  "https://hyrqavdmgeuidofzsleu.supabase.co/rest/v1/charlietango-data?select=id";
+  "https://hyrqavdmgeuidofzsleu.supabase.co/rest/v1/charlietango-data";
 const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5cnFhdmRtZ2V1aWRvZnpzbGV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODI0MjU5MDYsImV4cCI6MTk5ODAwMTkwNn0.1VOuivxZZtOlOOOake1U1hc4F2qSQZzhjzzziyqV8rU";
 
-const supabase = createClient(supabaseUrl, supabaseKey);
-
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
-
-  const {
-    name,
-    email,
-    phone,
-    consent,
-    price,
-    estateType,
-    size,
-    zip,
-    address,
-    created_at,
-    buyer,
-    ...lookupData
-  } = req.body;
-
-  try {
-    const { data, error } = await supabase
-      .from("user_details")
-      .insert({
-        name,
-        email,
-        phone,
-        consent,
-        price,
-        estateType,
-        size,
-        zip,
-        address,
-        created_at,
-        buyer,
-        lookup_data: lookupData,
-      });
-
-    if (error) {
-      throw error;
-    }
-
-    return res
-      .status(200)
-      .json({ message: "User details submitted successfully" });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: "Error submitting user details" });
-  }
+  fetch(supabaseUrl, {
+    method: "post",
+    headers: {
+      apikey: supabaseKey,
+      "Content-Type": "application/json",
+      Prefer: "return=minimal",
+    },
+    body: JSON.stringify(req.body.payload),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      return res.status(200).json({ data });
+    });
 }
