@@ -26,8 +26,22 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   align-content: center;
+  grid-gap: 1rem;
+  
+  
 }
 .col {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--dusty-aqua-light);
+  padding: 1rem;
+  border: 1px solid var(--dusty-blue);
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem var(--dusty-blue);
+  
+  
 }
+

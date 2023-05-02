@@ -43,21 +43,20 @@ export default function Buyers(props) {
                 <RoundButton setSelected={setSelected} id={buyer.id} />
                 <p>
                   {" "}
-                  <Image
-                    src={estateIcon}
-                    width={32}
-                    height={32}
-                    alt="EDC"
-                  />{" "}
-                  Id: {buyer.id}
+              
+                  ID : {buyer.id}
                 </p>
-                <p>Estatetype: {buyer.estateType}</p>
-                <p>Date: {buyer.takeoverDate}</p>
-                <p>Adults: {buyer.adults}</p>
-                <p>Children: {buyer.children}</p>
-                <p>Description: {buyer.description}</p>
-                <p>Size: {buyer.minSize}</p>
-                <p>Price: {buyer.maxPrice}</p>
+
+                <p><Image src={estateIcon} alt="estate icon" width={30} height={30} />Estatetype: {buyer.estateType}
+                
+                </p>
+                <p><strong>Description </strong>: {buyer.description}</p>
+                <p><strong>Date</strong>: {buyer.takeoverDate}</p>
+                <p><strong>Adults</strong>: {buyer.adults}</p>
+                <p><strong>Children</strong>: {buyer.children}</p>
+              
+                <p><strong>Size</strong>: {buyer.minSize}</p>
+                <p><strong>Price</strong>: {buyer.maxPrice}</p>
               </article>
             ))}
           </div>
