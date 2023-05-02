@@ -7,10 +7,15 @@ const ContactForm = (props) => {
     name: "",
     email: "",
     phone: "",
+    consent: false, // added consent field with false as initial state
   });
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const handleCheckboxChange = (event) => {
+    setFormData({ ...formData, consent: event.target.checked });
   };
 
   const handleSubmit = async (event) => {
@@ -18,7 +23,6 @@ const ContactForm = (props) => {
 
     const payload = {
       ...formData,
-      consent: true,
       buyer: props.selected,
       price: props.price,
       squareMeters: props.squareMeters,
@@ -89,7 +93,20 @@ const ContactForm = (props) => {
           required
         />
       </div>
-
+      <div>
+        <br />
+        <label htmlFor="consent">
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            checked={formData.consent}
+            onChange={handleCheckboxChange}
+          />
+          &nbsp; Yes please, EDC may contact me with offers and information
+          related to the real estate market.
+        </label>
+      </div>
       <button className={styles.button} type="submit">
         Contact Buyers
       </button>
