@@ -16,12 +16,13 @@ export default async function handler(req, res) {
     headers: {
       apikey: supabaseKey,
       "Content-Type": "application/json",
-      Prefer: "return=minimal",
+      Prefer: "return=representation",
     },
-    body: JSON.stringify(req.body.payload),
+    body: JSON.stringify(req.body),
   })
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       return res.status(200).json({ data });
     });
 }

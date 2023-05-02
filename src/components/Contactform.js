@@ -1,8 +1,10 @@
 import { useState } from "react";
 import styles from "../pages/Home.module.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const ContactForm = (props) => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,8 +31,17 @@ const ContactForm = (props) => {
       zipCode: props.zipCode,
       estateType: props.estateType,
     };
-    console.log(payload);
+    //console.log(payload);
+    /*
 
+curl -X POST 'https://hyrqavdmgeuidofzsleu.supabase.co/rest/v1/charlietango-data' \
+-H "apikey: SUPABASE_KEY" \
+-H "Authorization: Bearer SUPABASE_KEY" \
+-H "Content-Type: application/json" \
+-H "Prefer: return=minimal" \
+-d '{ "some_column": "someValue", "other_column": "otherValue" }'
+
+*/
     const response = await fetch("/api/submit-details", {
       method: "POST",
       headers: {
@@ -40,11 +51,12 @@ const ContactForm = (props) => {
     });
     const data = await response.json();
     console.log(data);
-    if (response.ok) {
+    router.push("/confirmation");
+    /* if (data) {
       console.log("Message sent successfully");
     } else {
       console.error("Error sending message:", response.statusText);
-    }
+    } */
   };
 
   const selectedBuyerIds = props.selected.join(", ");
