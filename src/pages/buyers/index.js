@@ -13,7 +13,7 @@ export async function getServerSideProps(context) {
 
   // Fetch data from external API
   const res = await fetch(
-    `http://localhost:3000/api/find-buyers?price=${price}&size=${squareMeters}&zipCode=${zipCode}&estateType=${estateType}`
+    `https://charlie-tango-case-chri42mp.vercel.app/api/find-buyers?price=${price}&size=${squareMeters}&zipCode=${zipCode}&estateType=${estateType}`
   );
   const data = await res.json();
 
@@ -41,22 +41,36 @@ export default function Buyers(props) {
               <article key={buyer.id}>
                 {/* <h3>{buyer.id}</h3> */}
                 <RoundButton setSelected={setSelected} id={buyer.id} />
+                <p> ID : {buyer.id}</p>
+
                 <p>
-                  {" "}
-              
-                  ID : {buyer.id}
+                  <Image
+                    src={estateIcon}
+                    alt="estate icon"
+                    width={30}
+                    height={30}
+                  />
+                  Estatetype: {buyer.estateType}
+                </p>
+                <p>
+                  <strong>Description </strong>: {buyer.description}
+                </p>
+                <p>
+                  <strong>Date</strong>: {buyer.takeoverDate}
+                </p>
+                <p>
+                  <strong>Adults</strong>: {buyer.adults}
+                </p>
+                <p>
+                  <strong>Children</strong>: {buyer.children}
                 </p>
 
-                <p><Image src={estateIcon} alt="estate icon" width={30} height={30} />Estatetype: {buyer.estateType}
-                
+                <p>
+                  <strong>Size</strong>: {buyer.minSize}
                 </p>
-                <p><strong>Description </strong>: {buyer.description}</p>
-                <p><strong>Date</strong>: {buyer.takeoverDate}</p>
-                <p><strong>Adults</strong>: {buyer.adults}</p>
-                <p><strong>Children</strong>: {buyer.children}</p>
-              
-                <p><strong>Size</strong>: {buyer.minSize}</p>
-                <p><strong>Price</strong>: {buyer.maxPrice}</p>
+                <p>
+                  <strong>Price</strong>: {buyer.maxPrice}
+                </p>
               </article>
             ))}
           </div>
